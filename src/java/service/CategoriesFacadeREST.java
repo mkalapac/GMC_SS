@@ -4,6 +4,7 @@
  */
 package service;
 
+import entities.Categories;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,60 +17,59 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import entities.MicroMarket;
 
 /**
  *
  * @author Marina
  */
 @Stateless
-@Path("org.asc.hr.entities.micromarket")
-public class MicroMarketFacadeREST extends AbstractFacade<MicroMarket> {
+@Path("entities.categories")
+public class CategoriesFacadeREST extends AbstractFacade<Categories> {
     @PersistenceContext(unitName = "GetMeCoffeeWebPU")
     private EntityManager em;
 
-    public MicroMarketFacadeREST() {
-        super(MicroMarket.class);
+    public CategoriesFacadeREST() {
+        super(Categories.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(MicroMarket entity) {
+    public void create(Categories entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(MicroMarket entity) {
+    public void edit(Categories entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") String id) {
+    public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public MicroMarket find(@PathParam("id") String id) {
+    public Categories find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<MicroMarket> findAll() {
+    public List<Categories> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<MicroMarket> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Categories> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

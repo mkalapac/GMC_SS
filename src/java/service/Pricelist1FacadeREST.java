@@ -4,6 +4,7 @@
  */
 package service;
 
+import entities.Pricelist1;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,60 +17,59 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import entities.DiscountCode;
 
 /**
  *
  * @author Marina
  */
 @Stateless
-@Path("org.asc.hr.entities.discountcode")
-public class DiscountCodeFacadeREST extends AbstractFacade<DiscountCode> {
+@Path("entities.pricelist1")
+public class Pricelist1FacadeREST extends AbstractFacade<Pricelist1> {
     @PersistenceContext(unitName = "GetMeCoffeeWebPU")
     private EntityManager em;
 
-    public DiscountCodeFacadeREST() {
-        super(DiscountCode.class);
+    public Pricelist1FacadeREST() {
+        super(Pricelist1.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(DiscountCode entity) {
+    public void create(Pricelist1 entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(DiscountCode entity) {
+    public void edit(Pricelist1 entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") String id) {
-        super.remove(super.find(id.charAt(0)));
+    public void remove(@PathParam("id") Integer id) {
+        super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public DiscountCode find(@PathParam("id") String id) {
-        return super.find(id.charAt(0));
+    public Pricelist1 find(@PathParam("id") Integer id) {
+        return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<DiscountCode> findAll() {
+    public List<Pricelist1> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<DiscountCode> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Pricelist1> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

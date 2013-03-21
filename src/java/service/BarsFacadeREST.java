@@ -4,6 +4,7 @@
  */
 package service;
 
+import entities.Bars;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,33 +17,32 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import entities.Customer;
 
 /**
  *
  * @author Marina
  */
 @Stateless
-@Path("org.asc.hr.entities.customer")
-public class CustomerFacadeREST extends AbstractFacade<Customer> {
+@Path("entities.bars")
+public class BarsFacadeREST extends AbstractFacade<Bars> {
     @PersistenceContext(unitName = "GetMeCoffeeWebPU")
     private EntityManager em;
 
-    public CustomerFacadeREST() {
-        super(Customer.class);
+    public BarsFacadeREST() {
+        super(Bars.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(Customer entity) {
+    public void create(Bars entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(Customer entity) {
+    public void edit(Bars entity) {
         super.edit(entity);
     }
 
@@ -55,21 +55,21 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public Customer find(@PathParam("id") Integer id) {
+    public Bars find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findAll() {
+    public List<Bars> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Bars> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
