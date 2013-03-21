@@ -13,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.QueryParam;
 
 /**
  * REST Web Service
@@ -37,10 +38,11 @@ public class helloRest {
      * @return an instance of java.lang.String
      */
     @GET
+    @Path("/{param}")
     @Produces("text/plain")
-    public String getText() {
+    public String getText(@PathParam("param") String msg) {
         //TODO return proper representation object
-        return "HelloCOffe";
+        return "HelloCOffe " + msg.toLowerCase();
     }
 
     /**
@@ -52,4 +54,5 @@ public class helloRest {
     @Consumes("text/plain")
     public void putText(String content) {
     }
+    
 }
