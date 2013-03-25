@@ -61,7 +61,7 @@ public class Pricelist1FacadeREST extends AbstractFacade<Pricelist1> {
 
     @GET
     @Override
-    @Produces({"application/xml", "application/json"})
+    @Produces({"application/json"})
     public List<Pricelist1> findAll() {
         return super.findAll();
     }
