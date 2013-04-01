@@ -13,40 +13,40 @@ import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.QueryParam;
 
 /**
  * REST Web Service
  *
  * @author Kala
  */
-@Path("/hello")
+@Path("order")
 @RequestScoped
-public class helloRest {
+public class OrderREST {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of helloRest
+     * Creates a new instance of OrderREST
      */
-    public helloRest() {
+    public OrderREST() {
     }
 
     /**
-     * Retrieves representation of an instance of service.helloRest
+     * Retrieves representation of an instance of service.OrderREST
      * @return an instance of java.lang.String
      */
     @GET
-    @Path("/{param}")
+    @Path("/{orderParam}")
     @Produces("text/plain")
-    public String getText(@PathParam("param") String msg) {
-        //TODO return proper representation object
-        return "HelloCOffe " + msg.toLowerCase();
+    public String getText(@PathParam("orderParam") String msg) {
+        
+        //TODO poziv s parametrima proslijediti
+        return msg;
     }
 
     /**
-     * PUT method for updating or creating an instance of helloRest
+     * PUT method for updating or creating an instance of OrderREST
      * @param content representation for the resource
      * @return an HTTP response with content of the updated or created resource.
      */
@@ -54,5 +54,4 @@ public class helloRest {
     @Consumes("text/plain")
     public void putText(String content) {
     }
-    
 }

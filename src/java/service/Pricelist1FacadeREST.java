@@ -54,7 +54,7 @@ public class Pricelist1FacadeREST extends AbstractFacade<Pricelist1> {
 
     @GET
     @Path("{id}")
-    @Produces({"application/xml", "application/json"})
+    @Produces({"application/json"})
     public Pricelist1 find(@PathParam("id") Integer id) {
         return super.find(id);
     }
